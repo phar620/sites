@@ -1,0 +1,159 @@
+/* === CSS Variables === */
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --light-gray: #F5F5F5;
+  --medium-gray: #E0E0E0;
+  --dark-gray: #333333;
+}
+
+/* === Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* === Layout === */
+.container {
+  background: var(--dark-gray);
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  width: 100vw;          /* full viewport width */
+  max-width: none;
+  box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.15);
+  animation: fadeIn 0.8s ease-out;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  animation: glow 3s linear infinite;
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  max-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* === Inputs and labels === */
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: var(--black);
+  color: var(--white);
+  font-size: 1rem;
+  transition: border-color 0.3s linear;
+  outline: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* === Buttons === */
+button,
+a {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 2.25rem;
+  border-radius: 30px;      /* super smooth rounded edges */
+  border: none;
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s linear;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+button:hover,
+a:hover {
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+button:active,
+a:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 7px rgba(255, 255, 255, 0.2);
+}
+
+/* === Button row === */
+.button-row {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+/* === Output styling === */
+.output {
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  word-break: break-word;
+  min-height: 3rem;
+  opacity: 1;
+  transition: opacity 0.3s linear, transform 0.3s linear;
+}
+
+/* === Remove PHARAOH text behind by no ::before or ::after on body or container === */
+
+/* === Scrollbar styling (optional) */
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
