@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "src": "/methods", "dest": "/methods.html" },
+    { "src": "/hyperlink", "dest": "/hyperlink.html" }
+  ]
+}
